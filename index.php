@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>
-           Contact | INFORMATIKA 2026
+            INFORMATIKA 2026
         </title>
     </head>
     <body>
@@ -12,16 +12,16 @@
 
         
             <tr>
-                <td><a href = "index.html"> Home</a></td>
-                <td><a href = "profile.html"> Profile</a></td>
-                <td><a href = "contact.html"> Contact</a></td>
-                <td><a href = "mahasiswa.html"> Data Mahasiswa</a></td>
+                <td><a href = "index.php"> Home</a></td>
+                <td><a href = "profile.php"> Profile</a></td>
+                <td><a href = "contact.php"> Contact</a></td>
+                <td><a href = "mahasiswa.php"> Data Mahasiswa</a></td>
 
             </tr>
             </table> 
         <hr/>
         <h3>Sambutan Annas</h3>
-        <img src="image/foto.jpg" width="500px"/> 
+        <img src="aset/image/foto.jpg" width="500px"/> 
         <p>
             <b>Nama    : Annas Khoirul Amri <br>
             Jabatan : Pemburu Babi <br>
