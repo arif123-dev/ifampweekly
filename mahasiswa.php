@@ -1,22 +1,9 @@
 <?php
 require "fungsi.php";
 
-    
-
-    //if($koneksi)
-    //{
-    //echo "Koneksi Berhasil!";
-    //}
-
-  $qmahasiswa = "SELECT * from mahasiswa";
-  $mahasiswas = tampildata($qmahasiswa);
-
-
-//  $result = mysqli_query($koneksi, $query);
-
-   
+$qmahasiswa = "SELECT * FROM mahasiswa";
+$mahasiswas = tampildata($qmahasiswa);
 ?>
-
 
 <!DOCTYPE html>
 <html lang="id">
@@ -118,112 +105,62 @@ require "fungsi.php";
 </head>
 <body>
 
-    <h1>Data Mahasiswa Informatika 2026</h1>
+<h1>Data Mahasiswa Informatika 2026</h1>
 
-    <div class="menu">
-        <a href="index.php">Home</a>
-        <a href="profile.php">Profile</a>
-        <a href="contact.php">Contact</a>
-        <a href="mahasiswa.php">Data Mahasiswa</a>
-    </div>
+<div class="menu">
+    <a href="index.php">Home</a>
+    <a href="profile.php">Profile</a>
+    <a href="contact.php">Contact</a>
+    <a href="mahasiswa.php">Data Mahasiswa</a>
+</div>
 
-    <div class="btn-tambah">
-        <a href="tambahdata.php">
-            <button>+ Tambah Data</button>
-        </a>
-    </div>
+<div class="btn-tambah">
+    <a href="tambahdata.php">
+        <button>+ Tambah Data</button>
+    </a>
+</div>
 
-    <table>
-        <tr>
-            <th>No</th>
-            <th>Nama</th>
-            <th>NIM</th>
-            <th>Jurusan</th>
-            <th>Email</th>
-            <th>No. HP</th>
-            <th>Foto</th>
-            <th>UTS</th>
-            <th>UAS</th>
-            <th>Tugas</th>
-            <th>Aksi</th>
-        </tr>
+<table>
+    <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>NIM</th>
+        <th>Jurusan</th>
+        <th>Email</th>
+        <th>No. HP</th>
+        <th>Foto</th>
+        <th>Aksi</th>
+    </tr>
 
-        <?php
-            foreach ($mahasiswas as $mhs);
-                {
-        ?>
-        <tr>
-            <td>1</td>
-            <td><?= $mhs ["nama"]?></td>
-            <td><?= $mhs ["nim"]?> </td>
-            <td><?= $mhs ["jurusan"]?></td>
-            <td><?= $mhs ["email"]?></td>
-            <td><?= $mhs ["no_hp"]?></td>
-            <td>
-                <img src="aset/image/Photo.webp" alt="">
-            </td>
-            <td>80</td>
-            <td>90</td>
-            <td>85</td>
-            <td>
-                <div class="aksi">
-                    <a href="editdata.php">
-                        <button class="btn-edit">Edit</button>
-                    </a>
+    <?php $no = 1; ?>
 
-                    <a href="deletedata.php">
-                        <button class="btn-hapus">Hapus</button>
-                    </a>
-                </div>
-            </td>
-        </tr>
-
-        <?php
-                }
-        ?>
-        <tr>
-            <td>2</td>
-            <td>Windah Batubara</td>
-            <td>123456789</td>
-            <td>Informatika</td>
-            <td>windah@gmail.com</td>
-            <td>08123456789</td>
-            <td>
-                <img src="aset/image/windah.jpg" alt="">
-            </td>
-            <td>100</td>
-            <td>100</td>
-            <td>5</td>
-            <td>
-                <div class="aksi">
+    <?php foreach ($mahasiswas as $mhs) : ?>
+    <tr>
+        <td><?= $no++; ?></td>
+        <td><?= $mhs["nama"]; ?></td>
+        <td><?= $mhs["nim"]; ?></td>
+        <td><?= $mhs["jurusan"]; ?></td>
+        <td><?= $mhs["email"]; ?></td>
+        <td><?= $mhs["no_hp"]; ?></td>
+        <td>
+           <img src="aset/image/<?= $mhs['foto']; ?>" alt="Foto">
+        </td>
+        <td>
+            <div class="aksi">
+                <a href="editdata.php?id=<?= $mhs['id']; ?>">
                     <button class="btn-edit">Edit</button>
-                    <button class="btn-hapus">Hapus</button>
-                </div>
-            </td>
-        </tr>
+                </a>
 
-        <tr>
-            <td>3</td>
-            <td>Jackson Pace</td>
-            <td>987654321</td>
-            <td>Informatika</td>
-            <td>jackson@gmail.com</td>
-            <td>08234567890</td>
-            <td>
-                <img src="aset/image/maha1.jpg" alt="">
-            </td>
-            <td>100</td>
-            <td>100</td>
-            <td>100</td>
-            <td>
-                <div class="aksi">
-                    <button class="btn-edit">Edit</button>
+                <a href="hapusdata.php?id=<?= $mhs["id"]; ?>"
+                   onclick="return confirm('Yakin ingin menghapus data?');">
                     <button class="btn-hapus">Hapus</button>
-                </div>
-            </td>
-        </tr>
+                </a>
+            </div>
+        </td>
+    </tr>
+    <?php endforeach; ?>
 
-    </table>
+</table>
 
 </body>
 </html>
